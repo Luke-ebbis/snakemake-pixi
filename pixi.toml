@@ -21,6 +21,7 @@ snakemake = ">=8.10.8,<8.11"
 mamba = ">=1.5.8,<1.6"
 wget = ">=1.21.4,<1.22"
 gzip = ">=1.13,<2"
+tree = ">=2.1.1,<2.2"
 
 [system-requirements]
 linux="4.18"
