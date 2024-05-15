@@ -2,22 +2,29 @@
 ## 
 ## DESCRIPTION
 ## 
-## Rules:
+## Rules
+## =====
+## 
 
 
-
-## help:                      Show the help.
+## help:
+##    Show the help.
+##
 rule help:
     input: "workflow/Snakefile"
     shell:
         "sed -n 's/^##//p' {input}"
 
-## clean:                     Clean all outputs
+## clean:                     
+##    Clean all outputs from the results folder.
+##
 rule clean:
     shell:
         "rm -rf results/*"
 
-## build_overview:            Print the graph.
+## build_overview:            
+##    Print the directed acyclic graph.
+##
 rule build_overview:
   output:
     "results/method.{fileformat}"

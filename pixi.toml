@@ -1,7 +1,7 @@
 [project]
 name = "snakemake-pixi"
 version = "0.1.0"
-description = "Add a short description here"
+description = "A template for installing and running a snakemake workflow with pixi."
 authors = ["Sibbe Bakker <sibbe.l.bakker@gmail.com>"]
 channels = ["conda-forge", "bioconda"]
 platforms = ["linux-64"]
@@ -9,6 +9,7 @@ platforms = ["linux-64"]
 
 [tasks]
 make = "snakemake --use-conda -c 1"
+test = "snakemake --use-conda -c 1 -np"
 t = "tree -L 3"
 help  = "snakemake help -c 1 --quiet all"
 update_dag = "snakemake --quiet all -c 1 'results/method.png' && mv results/method.png resources; mv resources/method.png resources/pipeline.png"
