@@ -1,0 +1,6 @@
+Pixi workflow
+
+test:
+  Run the dry run.
+
+
