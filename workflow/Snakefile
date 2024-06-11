@@ -25,6 +25,7 @@ rule t:
     echo "makeing {output}"
     mkdir -p results/output;
     touch {output}
+    sleep 10
     """
     
 

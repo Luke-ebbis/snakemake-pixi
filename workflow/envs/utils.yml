@@ -4,3 +4,7 @@ channels:
 dependencies:
   - perl
   - graphviz
+  - wget
+  - gzip
+  - curl
+

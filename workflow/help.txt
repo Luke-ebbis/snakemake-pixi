@@ -1,6 +1,37 @@
 Pixi workflow
 
-test:
-  Run the dry run.
+Commands
+--------
 
+  You may run commands as follows
+
+$ pixi run <command> arguments ... 
+
+test:
+  Run the snakemake dry run.
+
+make <subcommand>:
+  Runs the pipeline locally.
+  Uses the default profile stored in workflow/profile/default. Usefull
+  subcommands are:
+
+  help    Print the help of the snakefile.
+  clean   Delete the `results` directory.
+
+slurm:
+  Submits the snakemake workflow as indiviual jobs to slurm. This uses the
+  slurm executor with the slurm profile (in workflow/profile/slurm). Note that
+  snakemake is running as a foreground process to submit the slurm jobs.
+
+  Usefull overides are:
+  --jobs <n>    : The maximum number of jobs that are present at the same time.
+  --default-resources 
+    mem_mb=<n>  : The memory per cluster.  
+    tasks=<n>   : The number of paralel tasks (of a rule instance).  
+
+make-dag:
+  Print a png of the job graph in the resources folder.
+
+make-ascii:
+  Print a ascii art representation of the jobgraph in the resources folder.
 
