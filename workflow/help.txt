@@ -12,11 +12,10 @@ test:
 
 make <subcommand>:
   Runs the pipeline locally.
-  Uses the default profile stored in workflow/profile/default. Usefull
-  subcommands are:
+  Uses the default profile stored in workflow/profile/default. 
 
-  help    Print the help of the snakefile.
-  clean   Delete the `results` directory.
+make-help
+  Show documentation for the Snakefile.
 
 slurm:
   Submits the snakemake workflow as indiviual jobs to slurm. This uses the

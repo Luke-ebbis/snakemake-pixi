@@ -16,7 +16,10 @@ rule all:
   input:
     expand("results/output/{number}.txt", number = range(1, 10))
 
-rule t:
+
+## test:
+##    A rule that makes a file and then sleeps for 10 seconds.
+rule test:
   # threads: 8
   output:
     "results/output/{number}.txt"
@@ -27,8 +30,6 @@ rule t:
     touch {output}
     sleep 10
     """
-    
-
 
 ## help:
 ##    Show the help.

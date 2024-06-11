@@ -12,6 +12,7 @@ make = "snakemake --use-conda -c 1"
 test = "snakemake --use-conda -c 1 -np"
 slurm = "snakemake --use-conda --workflow-profile workflow/profiles/slurm"
 help  = "bash workflow/help.sh"
+make-help  = "sed -n 's/^##//p' workflow/Snakefile"
 make-dag = "mkdir resources; snakemake --quiet all -c 1 'results/method.png' && mv results/method.png resources; mv resources/method.png resources/pipeline.png"
 make-ascii = "mkdir resources; pixi run make results/method-simple.ascii &&  mv results/method-simple.ascii resources/pipeline.ascii; cat resources/pipeline.ascii"
 
@@ -23,6 +24,8 @@ mamba = ">=1.5.8,<1.6"
 tree = ">=2.1.1,<2.2"
 snakemake-executor-plugin-slurm = ">=0.6.0,<0.7"
 sed = ">=4.8,<5"
+gzip = ">=1.13,<2"
+tar = ">=1.34,<2"
 
 [system-requirements]
 linux="4.12.14"
