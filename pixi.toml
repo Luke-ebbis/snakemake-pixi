@@ -12,7 +12,9 @@ make = "snakemake --use-conda -c 1"
 test = "snakemake --use-conda -c 1 -np"
 t = "tree -L 3"
 help  = "bash workflow/help.sh"
-update_dag = "snakemake --quiet all -c 1 'results/method.png' && mv results/method.png resources; mv resources/method.png resources/pipeline.png"
+make-dag = "mkdir resources; snakemake --quiet all -c 1 'results/method.png' && mv results/method.png resources; mv resources/method.png resources/pipeline.png"
+make-ascii = "mkdir resources; pixi run make results/method-simple.ascii &&  mv results/method-simple.ascii resources/pipeline.ascii; cat resources/pipeline.ascii"
+
 
 [dependencies]
 graphviz = ">=9.0.0,<9.1"
@@ -24,4 +26,4 @@ gzip = ">=1.13,<2"
 tree = ">=2.1.1,<2.2"
 
 [system-requirements]
-linux="4.18"
+linux="4.12.14"

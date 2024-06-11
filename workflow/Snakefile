@@ -30,3 +30,31 @@ rule build_overview:
     """
     snakemake -c 1 --forceall --dag | dot -T{wildcards.fileformat} > {output}
     """
+
+rule install_easy_graph:
+  conda:
+    "envs/utils.yml"
+  output:
+    touch("results/checkpoints/install_easy_graph")
+  shell:
+    """
+    echo "Installing easy graph"
+    cpan -i App::cpanminus
+    cpanm Graph::Easy
+    """
+
+## build_overview_ascii:
+##    Prints the graph in ascii format.
+rule build_ascii_graph:
+  conda:
+    "envs/utils.yml"
+  input:
+    "results/checkpoints/install_easy_graph"
+  output:
+    "results/method-simple.ascii"
+  shell:
+    """
+    snakemake -c 1 --forceall --dag > out
+    graph-easy --from=dot --as_ascii out >  {output}
+    rm out
+    """
