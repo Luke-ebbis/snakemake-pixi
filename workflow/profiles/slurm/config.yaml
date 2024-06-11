@@ -1,0 +1,10 @@
+executor: slurm
+latency-wait: 60
+jobname: "{rule}.{jobid}" 
+jobs: 100
+
+default-resources:
+  - mem_mb=2000
+  - time="24:00:00"
+# https://www.embl.org/groups/bioinformatics-rome/blog/2022/04/snakemake-profile-4-defining-resources-and-threads/
+# cluster: "sbatch --output=\"jobs/{rule}/slurm_%x_%j.out\" --error=\"jobs/{rule}/slurm_%x_%j.log\""

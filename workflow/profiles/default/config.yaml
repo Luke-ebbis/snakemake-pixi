@@ -1,0 +1,4 @@
+executor: local
+printshellcmds: True
+jobs: 100
+

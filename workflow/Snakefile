@@ -6,6 +6,28 @@
 ## -----
 ##
 
+onstart:
+    print("##### running pipeline  #####\n") 
+    # shell("mkdir -p jobs/printContent")
+
+# rule all:
+#
+rule all:
+  input:
+    expand("results/output/{number}.txt", number = range(1, 10))
+
+rule t:
+  # threads: 8
+  output:
+    "results/output/{number}.txt"
+  shell:
+    """
+    echo "makeing {output}"
+    mkdir -p results/output;
+    touch {output}
+    """
+    
+
 
 ## help:
 ##    Show the help.
