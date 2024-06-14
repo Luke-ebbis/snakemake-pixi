@@ -31,6 +31,39 @@ rule test:
     sleep 10
     """
 
+# A rule that uses gpu's
+# ## colabfold:
+# ##    Calculate the protein structures of the fasta files using Colabfold.
+# ##
+# rule colabfold:
+#   conda:
+#     "envs/fold.yml"
+#   input:
+#     fasta="results/data/{protein_complex}/subunits/fasta-{grouping}/{fasta_file}.fasta",
+#     cuda="results/checkpoints/setup_cuda"
+#   resources:
+#     mem_mb=32000,
+#     slurm_extra= "'--gres=gpu:a100:1'",
+#     constraint="gpu",
+#     tasks="1",
+#     cpus_per_task=10,
+#     mem="30G",
+#     slurm_partition='gpu1',
+#     runtime='1440',
+#     slurm_account="mpmp_gpu",
+#   # threads: 10
+#   params:
+#     number_of_models=config['colabfold']['number_of_models']
+#   output:
+#     directory("results/data/{protein_complex}/subunits/processed-{grouping}/{fasta_file}")
+#   shell:
+#     """
+#     echo "Starting colabfold, please see {output}/log.txt for the log"
+#     colabfold_batch {input.fasta} {output} --num-models {params.number_of_models}
+#     """
+#
+
+
 ## help:
 ##    Show the help.
 ##
