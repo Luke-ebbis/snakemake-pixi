@@ -31,6 +31,16 @@ rule test:
     sleep 10
     """
 
+rule docker_tidyverse:
+    output:
+        "results/myplot.png"
+    container:
+        "docker://rocker/tidyverse:latest"
+    shell:
+        """
+        R -e "library(tidyverse); dist = rnorm(1000); ggplot(data = tibble(x=dist), aes(x=x)) + geom_histogram(); ggsave('{output}')"
+        """
+
 # A rule that uses gpu's
 # ## colabfold:
 # ##    Calculate the protein structures of the fasta files using Colabfold.
